@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/CodeOSS.iml" filepath="$PROJECT_DIR$/.idea/CodeOSS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CodeOSS.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CodeOSS.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CodeOSS.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CodeOSS.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CodeOSS.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CodeOSS.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CodeOSS.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CodeOSS.app.unitTest.iml" />
+    </modules>
+  </component>
+</project>
