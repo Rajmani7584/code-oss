@@ -6,15 +6,16 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.Settings
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.editor.codeoss.ui.EditorLayout
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,10 +25,13 @@ class MainActivity : AppCompatActivity() {
             initApp()
             finish()
         } else
-            showPermissionDialog(this, 0);
+            showPermissionDialog(this, 0)
     }
 
     private fun initApp() {
+//        val view = findViewById<EditText>(R.id.textView)
+//
+//        view.setText(FileManager().readFile(File("/storage/emulated/0/index.html")))
         val intent = Intent(this, EditorLayout::class.java)
         startActivity(intent)
     }
@@ -66,9 +70,9 @@ class MainActivity : AppCompatActivity() {
     private fun requestForPermission(activity: MainActivity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
-            val data = Uri.fromParts("package", packageName, null);
-            intent.data = data;
-            startActivityForResult(intent, 0);
+            val data = Uri.fromParts("package", packageName, null)
+            intent.data = data
+            startActivityForResult(intent, 0)
         } else {
             ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE), 0)
         }
@@ -85,12 +89,10 @@ class MainActivity : AppCompatActivity() {
             if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
                 deny++
                 if (Manifest.permission.WRITE_EXTERNAL_STORAGE == permissions[i]) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        if (shouldShowRequestPermissionRationale(permissions[i])) {
-                            showPermissionDialog(this, 0)
-                        } else {
-                            showPermissionDialog(this, 1)
-                        }
+                    if (shouldShowRequestPermissionRationale(permissions[i])) {
+                        showPermissionDialog(this, 0)
+                    } else {
+                        showPermissionDialog(this, 1)
                     }
                 }
             }

@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="FileNameView">
+        <attr name="opened" format="boolean" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,54 @@
+<!Doctype html>
+<html>
+<head>
+    <title>Editor</title>
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+    <script src="src/ace.js"></script>
+    <script src="src/ext-language_tools.js"></script>
+
+    <style>
+            body {
+                height: 100vh;
+                width: 100vw;
+            }
+            #editor {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        </style>
+</head>
+<body>
+<div id="editor"></div>
+<script>
+
+    const editor = ace.edit("editor");
+
+    editor.session.setMode("ace/mode/html");
+
+    editor.setTheme("ace/theme/monokai");
+
+    editor.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true,
+        tooltipFollowsMouse: false,
+        displayIndentGuides: false,
+        autoScrollEditorIntoView: true,
+        showPrintMargin: false,
+        highlightActiveLine: true,
+        useSoftTabs: true,
+        tabSize: 4,
+    });
+
+    function setCode(path) {
+        editor.setValue(Android.getCode(path));
+        editor.clearSelection();
+    }
+</script>
+
+</body>
+</html>
